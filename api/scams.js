@@ -1,18 +1,11 @@
-import { get, post, put, _delete } from "./config";
-import { useQuery, useMutation, useQueryClient } from "react-query";
-import { Data } from "victory";
+import { get, _delete } from "./config";
 
-export const getScams = () => {
-	const _getScams = async () => {
-		try {
-			const res = await get("scam", {});
-			return res;
-			console.log(res);
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
-	const { data, state } = useQuery("scams", _getScams);
-	console.log(data, state);
+export const getScams = async (y) => {
+	try {
+		const res = await get("scammer", {});
+		console.log(res);
+		return res.data.data;
+	} catch (error) {
+		console.log(error);
+	}
 };
